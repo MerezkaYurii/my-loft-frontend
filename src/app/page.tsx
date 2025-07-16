@@ -18,9 +18,13 @@ export default function HomePage() {
             <source src="/video/lofthomepage2.mp4" />
           </video>
 
-          <h2 className="text-gray-200 text-[70px] font-bold absolute left-1/2 -translate-x-1/2 top-2">
+          <Link
+            href={'/about'}
+            className="text-gray-200 text-[70px] font-bold absolute left-1/2 -translate-x-1/2 top-2"
+          >
             My loft
-          </h2>
+          </Link>
+
           <p className=" w-[450px] text-gray-200 text-[20px] font-bold absolute left-1/2 -translate-x-1/2 top-32 leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ut
             perferendis provident corrupti, officiis sint beatae molestias a
@@ -42,9 +46,8 @@ export default function HomePage() {
                 />
               </Link>
 
-              {/* Видеоархив */}
               <Link
-                href="/gallery/video"
+                href="/gallery/photoFromInternet"
                 className="inline-block relative w-[250px] h-[80px] ml-10 "
               >
                 <Image
@@ -57,7 +60,7 @@ export default function HomePage() {
 
               {/* Видеоархив */}
               <Link
-                href="/gallery/video"
+                href="/gallery/myEquipment"
                 className="inline-block relative w-[250px] h-[80px] ml-20"
               >
                 <Image
@@ -82,9 +85,8 @@ export default function HomePage() {
                 />
               </Link>
 
-              {/* Видеоархив */}
               <Link
-                href="/gallery/video"
+                href="/gallery/videoFromInternet"
                 className="inline-block relative w-[250px] h-[80px]  ml-10 "
               >
                 <Image
@@ -95,7 +97,7 @@ export default function HomePage() {
                 />
               </Link>
               <Link
-                href="/gallery/video"
+                href="/gallery/howToDoItCorrectly"
                 className="inline-block relative w-[250px] h-[80px]  "
               >
                 <Image

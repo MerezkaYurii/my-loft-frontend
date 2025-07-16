@@ -42,8 +42,8 @@ export default function Header() {
               <span>Photo</span>
             </Link>
             <Link
-              href={'/gallery/photo'}
-              className={linkClass('/gallery/photo')}
+              href={'/gallery/photoFromInternet'}
+              className={linkClass('/gallery/photoFromInternet')}
             >
               <span>Photo from</span>
               <br />
@@ -58,24 +58,24 @@ export default function Header() {
               <span>Video</span>
             </Link>
             <Link
-              href={'/gallery/video'}
-              className={linkClass('/gallery/video')}
+              href={'/gallery/videoFromInternet'}
+              className={linkClass('/gallery/videoFromInternet')}
             >
               <span>Video from</span>
               <br />
               <span>the Internet</span>
             </Link>
             <Link
-              href={'/gallery/equipment'}
-              className={linkClass('/gallery/equipment')}
+              href={'/gallery/myEquipment'}
+              className={linkClass('/gallery/myEquipment')}
             >
               <span>My </span>
               <br />
               <span>equipment</span>
             </Link>
             <Link
-              href={'/gallery/howtodoit'}
-              className={linkClass('/gallery/howtodoit')}
+              href={'/gallery/howToDoItCorrectly'}
+              className={linkClass('/gallery/howToDoItCorrectly')}
             >
               <span>How to do</span>
               <br />
