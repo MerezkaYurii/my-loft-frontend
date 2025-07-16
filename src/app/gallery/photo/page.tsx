@@ -1,7 +1,30 @@
-import React from 'react';
+import GalleryPage, { GalleryItem } from '@/app/components/GalleryPage';
 
-type Props = {};
+export const photoItems: GalleryItem[] = [
+  {
+    id: 1,
+    title: 'Лофт. Интерьер',
+    description: 'Современный дизайн интерьера с естественным освещением.',
+    thumbnail: '/photo/loft1.jpg',
+    type: 'photo',
+  },
 
-export default function page({}: Props) {
-  return <div></div>;
+  {
+    id: 2,
+    title: 'Детали декора',
+    description: 'Уютные элементы декора в индустриальном стиле.',
+    thumbnail: '/photo/loft1.jpg',
+    type: 'photo',
+  },
+  {
+    id: 3,
+    title: 'Общий план',
+    description: 'Общий вид помещения с мебелью и освещением.',
+    thumbnail: '/photo/loft1.jpg',
+    type: 'photo',
+  },
+];
+
+export default function PhotoGalleryPage() {
+  return <GalleryPage items={photoItems} />;
 }
