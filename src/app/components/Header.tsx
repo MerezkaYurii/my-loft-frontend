@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { usePathname } from 'next/navigation';
+import LogoutIconLink from './LogoutIconLink';
+import SubmitIconLink from './SendMe';
 
 export default function Header() {
   const pathname = usePathname();
@@ -84,19 +86,11 @@ export default function Header() {
           </nav>
         </div>
 
-        <Link
-          href={'/logout'}
-          className="bg-gray-800 w-[50px] h-[50px] flex items-center justify-center "
-        >
-          <svg
-            height="50"
-            width="50"
-            className="fill-white "
-            aria-label="Logout"
-          >
-            <use xlinkHref="/sprite.svg#icon-exit" />
-          </svg>
-        </Link>
+        <div className="  flex gap-8">
+          <SubmitIconLink />
+
+          <LogoutIconLink />
+        </div>
       </div>
     </header>
   );
