@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 
 import DetailPage from '@/app/components/DetailePage';
-import { videoItems } from '../page';
+import { videoItems } from '@/app/components/videoItems';
 
 export default function VideoDetailPage() {
   const { id } = useParams();

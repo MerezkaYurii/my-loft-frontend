@@ -2,8 +2,9 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { videoItems } from '../page';
+
 import DetailPage from '@/app/components/DetailePage';
+import { videoItems } from '@/app/components/videoItems';
 
 export default function VideoDetailPage() {
   const { id } = useParams();

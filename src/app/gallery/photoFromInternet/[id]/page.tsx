@@ -1,7 +1,8 @@
 'use client';
 import { useParams } from 'next/navigation';
-import { photoItems } from '../page';
+
 import DetailPage from '@/app/components/DetailePage';
+import { photoItems } from '@/app/components/photoItems';
 
 export default function PhotoDetailPage() {
   const params = useParams();
