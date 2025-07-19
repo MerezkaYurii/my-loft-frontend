@@ -1,6 +1,7 @@
+import { getLoftData } from '@/app/api/api';
 import GalleryPage from '@/app/components/GalleryPage';
-import { photoItems } from '@/app/components/photoItems';
 
-export default function PhotoGalleryPage() {
-  return <GalleryPage items={photoItems} />;
+export default async function PhotoGalleryPage() {
+  const items = await getLoftData('my-photos');
+  return <GalleryPage items={items} />;
 }

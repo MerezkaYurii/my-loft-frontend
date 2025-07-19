@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 
 export type GalleryItem = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   thumbnail: string;

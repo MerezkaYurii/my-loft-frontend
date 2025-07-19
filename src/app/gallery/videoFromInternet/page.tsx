@@ -1,7 +1,9 @@
+import { getLoftData } from '@/app/api/api';
 import GalleryPage from '@/app/components/GalleryPage';
-import { videoItems } from '@/app/components/videoItems';
+
 import React from 'react';
 
-export default function VideoGalleryPage() {
-  return <GalleryPage items={videoItems} />;
+export default async function VideoGalleryPage() {
+  const items = await getLoftData('internet-videos');
+  return <GalleryPage items={items} />;
 }
