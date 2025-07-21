@@ -5,11 +5,14 @@ const API_URL = process.env.BACKEND_API_URL || 'http://localhost:4000';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { collection: string } },
-) {
+  // { params }: { params: { collection: string } },
+): Promise<NextResponse> {
   const body = await req.json();
-  const { collection } = params;
-
+  // const { collection } = params;
+  // Извлекаем collection из URL вручную
+  const url = new URL(req.url);
+  const segments = url.pathname.split('/');
+  const collection = segments[segments.length - 1];
   try {
     const res = await fetch(`${API_URL}/api/loft/${collection}`, {
       method: 'POST',
