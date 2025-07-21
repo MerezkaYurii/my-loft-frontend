@@ -3,12 +3,13 @@ import React from 'react';
 import Link from 'next/link';
 
 export type GalleryItem = {
-  id: number;
+  _id: string;
   title: string;
   description: string;
   thumbnail: string;
   link?: string;
   type: 'video' | 'photo';
+  category: string;
 };
 
 type GalleryPageProps = {
@@ -16,13 +17,22 @@ type GalleryPageProps = {
 };
 
 export default function GalleryPage({ items }: GalleryPageProps) {
+  const getFolderName = (item: GalleryItem) => {
+    if (item.category === 'my-photos') return 'photo';
+    if (item.category === 'internet-photos') return 'photoFromInternet';
+    if (item.category === 'my-videos') return 'video';
+    if (item.category === 'internet-videos') return 'videoFromInternet';
+    if (item.category === 'my-equipment') return 'myEquipment';
+    if (item.category === 'how-to') return 'howToDoItCorrectly';
+    return 'unknown';
+  };
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
           <Link
-            href={`/gallery/${item.type}/${item.id}`}
-            key={item.id}
+            href={`/gallery/${getFolderName(item)}/${item._id}`}
+            key={item._id}
             className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-700 "
           >
             <Image

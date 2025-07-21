@@ -10,6 +10,7 @@ export type GalleryItem = {
   description: string;
   thumbnail: string;
   type: 'photo' | 'video';
+  category: string;
 };
 
 type DetailPageProps = {

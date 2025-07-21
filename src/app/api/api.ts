@@ -5,7 +5,6 @@ export const getLoftData = async (category: string) => {
   const res = await fetch(`${API_URL}/api/loft/${category}`, {
     method: 'GET',
   });
-  console.log();
 
   if (!res.ok) {
     const errorText = await res.text();

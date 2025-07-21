@@ -3,6 +3,6 @@ import GalleryPage from '@/app/components/GalleryPage';
 import React from 'react';
 
 export default async function VideoGalleryPage() {
-  const items = await getLoftData('internet-photos');
+  const items = await getLoftData('how-to');
   return <GalleryPage items={items} />;
 }

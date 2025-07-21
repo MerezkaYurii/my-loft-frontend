@@ -1,15 +1,30 @@
 'use client';
-import { useParams } from 'next/navigation';
 
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import DetailPage from '@/app/components/DetailePage';
-import { photoItems } from '@/app/components/photoItems';
+import { getLoftItemById } from '@/app/api/api';
 
 export default function PhotoDetailPage() {
-  const params = useParams();
-  const id = params?.id;
-  const item = photoItems.find((photo) => photo.id === String(id));
+  const { id } = useParams() as { id: string };
+  const category = 'my-photos';
 
-  if (!item) return <p className="text-center text-white">Photo not found</p>;
+  const [item, setItem] = useState(null);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (!id || id === 'undefined') {
+      setError('ID не передан в URL');
+      return;
+    }
+
+    getLoftItemById(category, id)
+      .then((data) => setItem(data))
+      .catch((err) => setError(err.message));
+  }, [id, category]);
+
+  if (error) return <p className="text-center text-white">{error}</p>;
+  if (!item) return <p className="text-center text-white">Загрузка...</p>;
 
   return <DetailPage item={item} />;
 }
