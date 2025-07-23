@@ -1,9 +1,10 @@
 'use client';
 import { useState } from 'react';
-
+import { useRouter } from 'next/navigation';
 interface FormData {
   name: string;
   message: string;
+  link: string;
   file: File | null;
 }
 
@@ -11,19 +12,53 @@ export default function SubmitMediaForm() {
   const [form, setForm] = useState<FormData>({
     name: '',
     message: '',
+    link: '',
     file: null,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+  const handleBackgroundClick = () => {
+    router.push('/'); // переход на homepage
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Form sent! File sent to administrator.');
-    // Здесь будет отправка на email/API
+
+    const formData = new FormData();
+    formData.append('name', form.name);
+    formData.append('message', form.message);
+    formData.append('link', form.link);
+    if (form.file) {
+      formData.append('file', form.file);
+    }
+
+    try {
+      const res = await fetch('http://localhost:4000/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (res.ok) {
+        alert('✅ Письмо успешно отправлено!');
+        setForm({ name: '', message: '', link: '', file: null });
+        router.push('/'); // возврат на главную
+      } else {
+        alert('❌ Ошибка при отправке письма');
+      }
+    } catch (error) {
+      console.error('Ошибка отправки:', error);
+      alert('❌ Ошибка соединения с сервером');
+    }
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50">
+    <div
+      className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center "
+      onClick={handleBackgroundClick}
+    >
       <form
         onSubmit={handleSubmit}
+        onClick={(e) => e.stopPropagation()}
         className=" max-h-fit w-full max-w-md mx-auto mt-10 p-6 sm:px-8 bg-gray-100 rounded-2xl shadow-lg flex flex-col gap-4"
       >
         <label className=" font-bold text-gray-900">
@@ -51,7 +86,7 @@ export default function SubmitMediaForm() {
             type="text"
             placeholder="Link"
             className="p-2 border rounded-md w-full"
-            value={form.name}
+            value={form.link}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
         </label>
