@@ -2,22 +2,60 @@
 import { useState } from 'react';
 
 export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
-  const [collection, setCollection] = useState(''); // <-- переместили выше
-  const [formData, setFormData] = useState({
+  const [collection, setCollection] = useState('');
+  const [formData, setFormData] = useState<{
+    title: string;
+    description: string;
+    thumbnail: string;
+    type: string;
+    file: File | null;
+  }>({
     title: '',
     description: '',
     thumbnail: '',
     type: '',
+    file: null,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`/api/lofts/${collection}`, {
+      const formPayload = new FormData();
+      if (formData.file) {
+        formPayload.append('file', formData.file);
+      }
+      formPayload.append('title', formData.title);
+      formPayload.append('description', formData.description);
+      formPayload.append('type', formData.type);
+      formPayload.append('category', collection);
+      formPayload.append('thumbnail', formData.thumbnail);
+
+      if (!formData.file && !formData.thumbnail) {
+        alert(
+          'Please provide either a file or a link. Пожалуйста, предоставьте файл или ссылку',
+        );
+        return;
+      }
+
+      const API_URL =
+        process.env.NODE_ENV === 'development'
+          ? 'http://localhost:4000'
+          : process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
+      // Проверка: файл или ссылка
+      if (!formData.file && !formData.thumbnail) {
+        alert('Please provide a file or a link.');
+        return;
+      }
+
+      console.log('✅ file in FormData:', formData.file);
+      console.log('📤 FormData preview:');
+      formPayload.forEach((val, key) => console.log(' -', key, val));
+
+      const response = await fetch(`${API_URL}/api/upload`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: formPayload,
       });
 
       if (response.ok) {
@@ -26,9 +64,10 @@ export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
           title: '',
           description: '',
           thumbnail: '',
-          type: 'photo',
+          type: '',
+          file: null,
         });
-        setCollection('my-photos'); // сброс коллекции
+        setCollection('');
         onClose();
       } else {
         alert('Error saving data');
@@ -48,7 +87,7 @@ export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
         <label className="text-gray-900 font-bold ">
           Name photo/video:
           <input
-            className=" border border-gray-500 p-2 rounded-md mb-4 "
+            className=" border border-gray-500 p-2 rounded-md mb-4 w-full"
             type="text"
             placeholder="Name"
             value={formData.title}
@@ -79,9 +118,28 @@ export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
             onChange={(e) =>
               setFormData({ ...formData, thumbnail: e.target.value })
             }
-            required
           />
         </label>
+
+        <div className="flex items-center gap-4 ">
+          <label className="bg-gray-700 text-white font-bold px-10 py-2 rounded-md cursor-pointer hover:bg-blue-800 mb-4">
+            Select file
+            <input
+              type="file"
+              accept="image/*,video/*"
+              onChange={(e) => {
+                const selectedFile = e.target.files?.[0] || null;
+                console.log('📦 Selected file:', selectedFile);
+                setFormData({ ...formData, file: selectedFile });
+              }}
+              className="hidden"
+            />
+          </label>
+          <span className="text-sm text-blue-800  ml-5">
+            {formData.file ? formData.file.name : 'File not selected'}
+          </span>
+        </div>
+
         <label className="text-gray-900 font-bold ">
           Select Image or Video
           <select
@@ -89,7 +147,7 @@ export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
             value={formData.type}
             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
           >
-            <option value=""></option>
+            <option value="">Select Photo/Video </option>
             <option value="photo">Photo</option>
             <option value="video">Video</option>
           </select>
@@ -101,9 +159,7 @@ export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
             onChange={(e) => setCollection(e.target.value)}
             className="w-full border border-gray-500 p-2 rounded-md text-gray-700 mb-4"
           >
-            <option value=""></option>
-            <option value="my-photos">My Photo</option>
-            <option value="my-photos">My Photo</option>
+            <option value="">Select category</option>
             <option value="my-photos">My Photo</option>
             <option value="internet-photos">Photo from the Internet</option>
             <option value="my-videos">My Video</option>

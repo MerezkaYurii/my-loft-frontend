@@ -33,7 +33,12 @@ export default function SubmitMediaForm() {
     }
 
     try {
-      const res = await fetch('http://localhost:4000/api/contact', {
+      const API_URL =
+        process.env.NODE_ENV === 'development'
+          ? 'http://localhost:4000'
+          : process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
+      const res = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         body: formData,
       });
@@ -91,7 +96,7 @@ export default function SubmitMediaForm() {
           />
         </label>
         <div className="flex items-center gap-4">
-          <label className="bg-gray-500 text-white font-bold px-20 py-2 rounded-md cursor-pointer hover:bg-blue-700">
+          <label className="bg-gray-500 text-white font-bold px-10 py-2 rounded-md cursor-pointer hover:bg-blue-700">
             Select file
             <input
               type="file"

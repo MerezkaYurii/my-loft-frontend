@@ -4,7 +4,11 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['franklinpetfood.com', 'images.stockcake.com'],
   },
-  /* config options here */
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '50mb',
+    },
+  },
 };
 
 export default nextConfig;
