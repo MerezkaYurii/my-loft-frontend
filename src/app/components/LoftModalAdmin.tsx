@@ -43,12 +43,6 @@ export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
           ? 'http://localhost:4000'
           : process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
-      // Проверка: файл или ссылка
-      if (!formData.file && !formData.thumbnail) {
-        alert('Please provide a file or a link.');
-        return;
-      }
-
       console.log('✅ file in FormData:', formData.file);
       console.log('📤 FormData preview:');
       formPayload.forEach((val, key) => console.log(' -', key, val));

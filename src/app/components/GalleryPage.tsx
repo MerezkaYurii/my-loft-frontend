@@ -35,13 +35,25 @@ export default function GalleryPage({ items }: GalleryPageProps) {
             key={item._id}
             className="bg-gray-900 rounded-xl overflow-hidden shadow-lg border border-gray-700 "
           >
-            <Image
-              src={item.thumbnail}
-              alt={item.title}
-              width={400}
-              height={200}
-              className="w-full h-48 object-cover"
-            />
+            {item.type === 'photo' ? (
+              <Image
+                src={item.thumbnail}
+                alt={item.title}
+                width={400}
+                height={200}
+                className="w-full h-48 object-cover"
+              />
+            ) : (
+              <video
+                src={item.thumbnail}
+                className="w-full h-48 object-cover"
+                muted
+                autoPlay
+                loop
+                playsInline
+              />
+            )}
+
             <div className="p-4">
               <h2 className="text-xl text-gray-300 font-bold mb-2">
                 {item.title}

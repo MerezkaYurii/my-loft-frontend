@@ -2,7 +2,11 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['franklinpetfood.com', 'images.stockcake.com'],
+    domains: [
+      'franklinpetfood.com',
+      'images.stockcake.com',
+      'res.cloudinary.com',
+    ],
   },
   experimental: {
     serverActions: {
