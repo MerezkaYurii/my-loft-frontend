@@ -12,6 +12,7 @@ if (!API_URL) {
 export const getLoftData = async (category: string) => {
   const res = await fetch(`${API_URL}/api/loft/${category}`, {
     method: 'GET',
+    next: { revalidate: 0 },
   });
 
   if (!res.ok) {
@@ -21,7 +22,14 @@ export const getLoftData = async (category: string) => {
   }
 
   const json = await res.json();
-  return json.data;
+
+  if (!Array.isArray(json.data)) {
+    console.error('❌ ОШИБКА: Ожидался массив, но получено:', json.data);
+    return [];
+  }
+
+  // return json.data;
+  return Array.isArray(json.data) ? json.data : [json.data];
 };
 
 export const getLoftItemById = async (category: string, id: string) => {

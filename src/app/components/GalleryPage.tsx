@@ -26,6 +26,7 @@ export default function GalleryPage({ items }: GalleryPageProps) {
     if (item.category === 'how-to') return 'howToDoItCorrectly';
     return 'unknown';
   };
+  console.log('[GalleryPage] items:', items);
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">

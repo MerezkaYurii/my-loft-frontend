@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       'franklinpetfood.com',
       'images.stockcake.com',
       'res.cloudinary.com',
+      'img.youtube.com',
     ],
   },
   experimental: {
