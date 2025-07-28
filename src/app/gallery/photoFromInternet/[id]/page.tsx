@@ -7,8 +7,7 @@ import { getLoftItemById } from '@/app/api/api';
 
 export default function PhotoFromInternetDetailPage() {
   const { id } = useParams() as { id: string };
-  const params = useParams();
-  console.log('params:', params);
+
   const category = 'internet-photos';
 
   const [item, setItem] = useState(null);

@@ -21,9 +21,7 @@ export default function HomePage() {
           {/* Заголовок */}
           <Link
             href={'/about'}
-            // className="text-gray-200 text-[70px] font-bold absolute left-1/2 -translate-x-1/2 top-2"
             className="absolute left-1/2 -translate-x-1/2 top-2 text-gray-200 text-4xl sm:text-5xl md:text-6xl font-bold mt-3 z-50"
-            //  className="text-gray-200 text-[70px] font-bold absolute left-1/2 -translate-x-1/2 top-2 z-20"
           >
             My loft
           </Link>
@@ -79,7 +77,6 @@ export default function HomePage() {
 
               {/* Правая колонка */}
 
-              {/* <div className="flex flex-col  gap-8 mr-10"> */}
               <div className="flex flex-col gap-3 items-center md:items-end min-w-[280px]">
                 {/* Видеогалерея */}
 

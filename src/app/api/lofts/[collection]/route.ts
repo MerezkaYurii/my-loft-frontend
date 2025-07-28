@@ -1,14 +1,16 @@
 // Для App Router: app/api/lofts/[collection]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_URL = process.env.BACKEND_API_URL || 'http://localhost:4000';
+// const API_URL = process.env.BACKEND_API_URL || 'http://localhost:4000';
 
-export async function POST(
-  req: NextRequest,
-  // { params }: { params: { collection: string } },
-): Promise<NextResponse> {
+const API_URL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:4000'
+    : process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
+export async function POST(req: NextRequest): Promise<NextResponse> {
   const body = await req.json();
-  // const { collection } = params;
+
   // Извлекаем collection из URL вручную
   const url = new URL(req.url);
   const segments = url.pathname.split('/');

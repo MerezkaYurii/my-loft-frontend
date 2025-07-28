@@ -4,6 +4,10 @@ const API_URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:4000'
     : process.env.NEXT_PUBLIC_BACKEND_API_URL;
+console.log('API_URL при билде:', API_URL);
+if (!API_URL) {
+  throw new Error('API_URL is undefined. Проверь переменные окружения!');
+}
 
 export const getLoftData = async (category: string) => {
   const res = await fetch(`${API_URL}/api/loft/${category}`, {

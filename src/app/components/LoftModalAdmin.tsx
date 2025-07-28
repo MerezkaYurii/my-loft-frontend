@@ -43,8 +43,8 @@ export default function LoftModalAdmin({ onClose }: { onClose: () => void }) {
           ? 'http://localhost:4000'
           : process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
-      console.log('✅ file in FormData:', formData.file);
-      console.log('📤 FormData preview:');
+      // console.log('✅ file in FormData:', formData.file);
+      // console.log('📤 FormData preview:');
       formPayload.forEach((val, key) => console.log(' -', key, val));
 
       const response = await fetch(`${API_URL}/api/upload`, {

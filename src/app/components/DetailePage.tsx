@@ -42,13 +42,11 @@ export default function DetailPage({ item }: DetailPageProps) {
             <video
               controls
               className="w-full max-h-[600px] object-cover"
-              // poster={item.thumbnail}
               autoPlay
               muted
               loop
             >
               <source
-                // src={item.thumbnail.replace('preview', 'video')}
                 src={item.thumbnail.replace('/upload/so_1/', '/upload/')}
                 type="video/mp4"
               />
