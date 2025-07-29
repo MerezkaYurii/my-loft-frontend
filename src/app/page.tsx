@@ -80,7 +80,7 @@ export default function HomePage() {
               <div className="flex flex-col gap-3 items-center md:items-end min-w-[280px]">
                 {/* Видеогалерея */}
 
-                <Link href="/gallery/myVideo" className="relative w-60 h-20">
+                <Link href="/gallery/video" className="relative w-60 h-20">
                   <Image
                     src="/myvideo.png"
                     alt=""
