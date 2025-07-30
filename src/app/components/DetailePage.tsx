@@ -20,7 +20,7 @@ type DetailPageProps = {
 
 function extractYouTubeID(url: string): string | null {
   const match = url.match(
-    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([0-9A-Za-z_-]{11})/
+    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([0-9A-Za-z_-]{11})/,
   );
   return match ? match[1] : null;
 }
@@ -37,10 +37,12 @@ export default function DetailPage({ item }: DetailPageProps) {
   };
 
   const isYouTube =
-    item.thumbnail.includes('youtube.com') || item.thumbnail.includes('youtu.be');
+    item.thumbnail.includes('youtube.com') ||
+    item.thumbnail.includes('youtu.be');
   const isFacebook = item.thumbnail.includes('facebook.com');
   const isDirectVideo =
-    item.thumbnail.endsWith('.mp4') || item.thumbnail.includes('cloudinary.com');
+    item.thumbnail.endsWith('.mp4') ||
+    item.thumbnail.includes('cloudinary.com');
 
   return (
     <div
@@ -85,7 +87,7 @@ export default function DetailPage({ item }: DetailPageProps) {
           ) : isFacebook ? (
             <ExternalFacebookVideo url={item.thumbnail} />
           ) : (
-            <div className="text-white p-6">Неизвестный формат видео</div>
+            <div className="text-white p-6">Unknown video format</div>
           )}
 
           <div className="p-6">

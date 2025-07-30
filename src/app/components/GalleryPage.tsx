@@ -83,7 +83,7 @@ export default function GalleryPage({ items }: GalleryPageProps) {
                 <ExternalFacebookVideo url={item.thumbnail} />
               ) : (
                 <div className="w-full h-48 bg-gray-800 text-white flex items-center justify-center">
-                  Неизвестный формат видео
+                  Unknown video format
                 </div>
               )}
 

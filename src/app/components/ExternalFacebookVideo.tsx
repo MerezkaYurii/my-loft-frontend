@@ -13,12 +13,12 @@ export default function ExternalFacebookVideo({ url }: Props) {
 
   return (
     <div className="w-full h-48 bg-gray-800 text-white flex flex-col justify-center items-center text-center px-4">
-      <p className="mb-2">Видео с Facebook нельзя встроить.</p>
+      <p className="mb-2">Facebook videos cannot be embedded.</p>
       <button
         onClick={handleOpen}
-        className="text-blue-400 underline hover:text-blue-300"
+        className="text-blue-300 underline hover:text-blue-900 font-bold text-xl"
       >
-        Открыть в новой вкладке
+        Open in a new tab
       </button>
     </div>
   );

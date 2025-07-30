@@ -17,7 +17,8 @@
     "prettier": "^3.6.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-loading": "^2.0.3"
+    "react-loading": "^2.0.3",
+    "react-spinners": "^0.17.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
