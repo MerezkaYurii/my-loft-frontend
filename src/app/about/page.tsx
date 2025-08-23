@@ -29,9 +29,9 @@ export default function AboutPage() {
 
         <div className="mt-6 text-center text-white">
           <p className="text-lg   font-bold leading-6 mb-3">
-            My name is Yurii Merezka. I'm 52 years old and I live in Kharkiv,
-            Ukraine. I graduated from the{' '}
-            <em>National Aerospace University "Kharkiv Aviation Institute"</em>,
+            My name is Yurii Merezhka. I`m 52 years old and I live in Kharkiv,
+            Ukraine. I graduated from the
+            <em>National Aerospace University `Kharkiv Aviation Institute`</em>,
             and I also hold a diploma as a CNC machine operator.
           </p>
 
