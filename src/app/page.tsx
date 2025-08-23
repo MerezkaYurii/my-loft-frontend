@@ -26,11 +26,19 @@ export default function HomePage() {
             My loft
           </Link>
 
-          <p className="hidden md:block w-[200px] leading-[1.2] xl:w-[450px] text-gray-200 text-[20px] font-bold absolute left-1/2 -translate-x-1/2 top-32 xl:leading-relaxed z-20 text-center drop-shadow-[2px_2px_4px_black]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ut
-            perferendis provident corrupti, officiis sint beatae molestias a
-            odio repudiandae, voluptas temporibus iure voluptatem architecto
-            atque tempora, aut eius dolores.
+          <p className="hidden md:block w-[200px] leading-[1.1] xl:w-[450px] text-gray-200 text-[14px] xl:text-[20px] font-bold absolute left-1/2 -translate-x-1/2 top-24 xl:leading-relaxed z-20 text-center drop-shadow-[2px_2px_4px_black]">
+            This is a space for those who value craftsmanship, know how to work
+            with wood and metal — who can weld, cut, and paint. For those who
+            build Loft-style furniture, equipment, and useful tools with their
+            own hands. Here I share my projects, ideas, experience, and
+            inspiration: My Equipment — machines, tools, and devices that I made
+            myself. My Photo — photos of finished products. My Video — videos
+            showing the making process and how the products are used. Photo from
+            Internet / Video from Internet — interesting finds from the web:
+            ideas, solutions, and inspiration. How to do it correctly — helpful
+            tips and recommendations on how to do things properly and with
+            quality. Come in, take a look, get inspired, and build with your own
+            hands!
           </p>
 
           <div className="absolute inset-0 z-10 flex flex-col md:flex-row justify-center md:justify-between items-center h-full gap-8 px-4 md:px-10 py-20">

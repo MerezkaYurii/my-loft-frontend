@@ -37,7 +37,7 @@ export default function GalleryPage({ items }: GalleryPageProps) {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
-      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((item) => {
           const isYouTube =
             item.thumbnail.includes('youtube.com') ||

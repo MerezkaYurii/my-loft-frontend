@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import LogoutIconLink from './LogoutIconLink';
 import SubmitIconLink from './SendMe';
-// import { Menu, X } from 'lucide-react'; // можно любую иконку или кастомную
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,7 +16,7 @@ export default function Header() {
     }`;
 
   const navLinks = [
-    { href: '/about', label1: 'About', label2: 'as' },
+    { href: '/about', label1: 'About', label2: 'me' },
     { href: '/gallery/photo', label1: 'My', label2: 'Photo' },
     {
       href: '/gallery/photoFromInternet',
