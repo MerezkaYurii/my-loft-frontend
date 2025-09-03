@@ -41,13 +41,16 @@ export default function HomePage() {
             hands!
           </p>
 
-          <div className="absolute inset-0 z-10 flex flex-col md:flex-row justify-center md:justify-between items-center h-full gap-8 px-4 md:px-10 py-20">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-start gap-6 md:w-full max-w-6xl md:mx-auto overflow-y-auto md:overflow-visible  md:max-h-full">
+          <div className="absolute inset-0 z-10 flex flex-col md:flex-row justify-center md:justify-between items-center h-full gap-8 px-4 md:px-10 py-7 top-8">
+            <div className="flex flex-col   md:flex-row justify-between items-start md:items-start md:gap-3 md:w-full max-w-6xl md:mx-auto overflow-y-auto md:overflow-visible  md:max-h-full">
               {/* ЛЕВАЯ колонка */}
 
-              <div className="flex flex-col gap-3 items-center md:items-start min-w-[280px]">
+              <div className="flex flex-col gap-2 items-center md:items-start min-w-[280px]">
                 {/* Фотогалерея */}
-                <Link href="/gallery/photo" className="relative w-60 h-20  ">
+                <Link
+                  href="/gallery/photo"
+                  className="relative w-60 h-16  md:h-20   "
+                >
                   <Image
                     src="/myfoto.png"
                     alt=""
@@ -59,7 +62,7 @@ export default function HomePage() {
                 {/* Фотогалерея  интернет*/}
                 <Link
                   href="/gallery/photoFromInternet"
-                  className="relative w-60 h-20  "
+                  className="relative w-60 h-16  md:h-20  "
                 >
                   <Image
                     src="/photoInternet.png"
@@ -72,7 +75,7 @@ export default function HomePage() {
                 {/* Оборудование */}
                 <Link
                   href="/gallery/myEquipment"
-                  className="relative w-60 h-20 "
+                  className="relative mb-2 w-60 h-16  md:h-20 "
                 >
                   <Image
                     src="/myEquipment.png"
@@ -85,10 +88,13 @@ export default function HomePage() {
 
               {/* Правая колонка */}
 
-              <div className="flex flex-col gap-3 items-center md:items-end min-w-[280px]">
+              <div className="flex flex-col gap-2 items-center md:items-end min-w-[280px]">
                 {/* Видеогалерея */}
 
-                <Link href="/gallery/video" className="relative w-60 h-20">
+                <Link
+                  href="/gallery/video"
+                  className="relative w-60 h-16  md:h-20"
+                >
                   <Image
                     src="/myvideo.png"
                     alt=""
@@ -101,7 +107,7 @@ export default function HomePage() {
 
                 <Link
                   href="/gallery/videoFromInternet"
-                  className="relative w-60 h-20 "
+                  className="relative w-60 h-16  md:h-20 "
                 >
                   <Image
                     src="/videoInternet.png"
@@ -115,7 +121,7 @@ export default function HomePage() {
 
                 <Link
                   href="/gallery/howToDoItCorrectly"
-                  className="relative w-60 h-20 "
+                  className="relative w-60 h-16  md:h-20 "
                 >
                   <Image
                     src="/doCorrectly.png"
