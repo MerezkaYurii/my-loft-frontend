@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'My Loft',
     description: 'DIY furniture, tools, and Loft-style projects.',
-    url: 'https://myloft.com',
+    url: 'https://my-loft-frontend.vercel.app',
     siteName: 'My Loft',
     images: [
       {
-        url: '/preview.jpg',
+        url: '/preview.png',
         width: 1200,
         height: 630,
         alt: 'My Loft preview',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'My Loft',
     description: 'DIY furniture, tools, and Loft-style projects',
-    images: ['/preview.jpg'],
+    images: ['/preview.png'],
   },
 };
 
