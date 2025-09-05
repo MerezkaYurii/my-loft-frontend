@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: 'My Loft',
     images: [
       {
-        url: '/preview.png',
+        url: '/preview.jpg',
         width: 1200,
         height: 630,
         alt: 'My Loft preview',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'My Loft',
     description: 'DIY furniture, tools, and Loft-style projects',
-    images: ['/preview.png'],
+    images: ['/preview.jpg'],
   },
 };
 
