@@ -1,7 +1,10 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import ExternalFacebookVideo from './ExternalFacebookVideo';
+import { getLoftData } from '../api/api';
 
 export type GalleryItem = {
   _id: string;
@@ -14,7 +17,9 @@ export type GalleryItem = {
 };
 
 type GalleryPageProps = {
-  items: GalleryItem[];
+  initialItems: GalleryItem[];
+  category: string;
+  initialPagination: { page: number; totalPages: number };
 };
 
 function extractYouTubeID(url: string): string | null {
@@ -24,7 +29,21 @@ function extractYouTubeID(url: string): string | null {
   return match ? match[1] : null;
 }
 
-export default function GalleryPage({ items }: GalleryPageProps) {
+export default function GalleryPage({
+  initialItems,
+  category,
+  initialPagination,
+}: GalleryPageProps) {
+  const [items, setItems] = useState<GalleryItem[]>(initialItems ?? []);
+  const [page, setPage] = useState<number>(
+    Number(initialPagination?.page ?? 1),
+  );
+  const [totalPages, setTotalPages] = useState<number>(
+    initialPagination?.totalPages ?? 1,
+  );
+
+  const [loading, setLoading] = useState(false);
+
   const getFolderName = (item: GalleryItem) => {
     if (item.category === 'my-photos') return 'photo';
     if (item.category === 'internet-photos') return 'photoFromInternet';
@@ -33,6 +52,26 @@ export default function GalleryPage({ items }: GalleryPageProps) {
     if (item.category === 'my-equipment') return 'myEquipment';
     if (item.category === 'how-to') return 'howToDoItCorrectly';
     return 'unknown';
+  };
+
+  const handleLoadMore = async () => {
+    if (page >= totalPages) return;
+    setLoading(true);
+    try {
+      const nextPage = page + 1;
+      const { items: newItems, pagination } = await getLoftData(
+        category,
+        nextPage,
+        8,
+      );
+      setItems((prev) => [...prev, ...newItems]);
+      setPage(Number(pagination.page)); // 👈 гарантируем число
+      setTotalPages(Number(pagination.totalPages));
+    } catch (error) {
+      console.error('Ошибка загрузки:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -106,6 +145,17 @@ export default function GalleryPage({ items }: GalleryPageProps) {
           );
         })}
       </div>
+      {page < totalPages && (
+        <div className="mt-8 text-center">
+          <button
+            onClick={handleLoadMore}
+            disabled={loading}
+            className="px-6 py-3 bg-gray-900 text-white rounded-2xl disabled:opacity-50 hover:bg-blue-900 transition-colors duration-800"
+          >
+            {loading ? ' Loading...' : 'Load More'}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

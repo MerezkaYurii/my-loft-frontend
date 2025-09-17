@@ -9,11 +9,26 @@ if (!API_URL) {
   throw new Error('API_URL is undefined. Проверь переменные окружения!');
 }
 
-export const getLoftData = async (category: string) => {
-  const res = await fetch(`${API_URL}/api/loft/${category}`, {
-    method: 'GET',
-    next: { revalidate: 0 },
+export const getLoftData = async (
+  category: string,
+  page: number = 1,
+  limit: number = 8,
+  sort: string = 'createdAt',
+  order: 'desc' | 'asc' = 'desc',
+) => {
+  const queryParams = new URLSearchParams({
+    page: page.toString(),
+    limit: limit.toString(),
+    sort,
+    order,
   });
+  const res = await fetch(
+    `${API_URL}/api/loft/${category}?${queryParams.toString()}`,
+    {
+      method: 'GET',
+      // next: { revalidate: 0 },
+    },
+  );
 
   if (!res.ok) {
     const errorText = await res.text();
@@ -23,13 +38,20 @@ export const getLoftData = async (category: string) => {
 
   const json = await res.json();
 
-  if (!Array.isArray(json.data)) {
-    console.error('❌ ОШИБКА: Ожидался массив, но получено:', json.data);
-    return [];
+  if (!json.data?.items || !Array.isArray(json.data.items)) {
+    console.error('❌ ОШИБКА: Ожидался массив items, но получено:', json.data);
+    return {
+      items: [],
+      pagination: { page: 1, limit: 8, total: 0, totalPages: 1 },
+    };
   }
 
+  return {
+    items: json.data.items,
+    pagination: json.data.pagination,
+  };
+
   // return json.data;
-  return Array.isArray(json.data) ? json.data : [json.data];
 };
 
 export const getLoftItemById = async (category: string, id: string) => {

@@ -3,6 +3,12 @@ import GalleryPage from '@/app/components/GalleryPage';
 import React from 'react';
 
 export default async function myEqipmentGalleryPage() {
-  const items = await getLoftData('my-equipment');
-  return <GalleryPage items={items} />;
+  const { items, pagination } = await getLoftData('my-equipment');
+  return (
+    <GalleryPage
+      initialItems={items}
+      initialPagination={pagination}
+      category="my-equipment"
+    />
+  );
 }
