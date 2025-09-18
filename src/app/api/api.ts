@@ -27,6 +27,10 @@ export const getLoftData = async (
     {
       method: 'GET',
       // next: { revalidate: 0 },
+      cache: 'no-store',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
   );
 
@@ -50,8 +54,6 @@ export const getLoftData = async (
     items: json.data.items,
     pagination: json.data.pagination,
   };
-
-  // return json.data;
 };
 
 export const getLoftItemById = async (category: string, id: string) => {

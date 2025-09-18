@@ -1,8 +1,6 @@
 // Для App Router: app/api/lofts/[collection]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
-// const API_URL = process.env.BACKEND_API_URL || 'http://localhost:4000';
-
 const API_URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:4000'

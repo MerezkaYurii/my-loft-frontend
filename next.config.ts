@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       'images.stockcake.com',
       'res.cloudinary.com',
       'img.youtube.com',
+      'my-loft-backend.onrender.com',
     ],
   },
   experimental: {
