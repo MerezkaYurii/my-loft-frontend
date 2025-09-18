@@ -22,15 +22,12 @@ export const getLoftData = async (
     sort,
     order,
   });
+
   const res = await fetch(
     `${API_URL}/api/loft/${category}?${queryParams.toString()}`,
     {
       method: 'GET',
-      // next: { revalidate: 0 },
       cache: 'no-store',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     },
   );
 
@@ -41,6 +38,13 @@ export const getLoftData = async (
   }
 
   const json = await res.json();
+
+  if (Array.isArray(json)) {
+    return {
+      items: json,
+      pagination: { page, limit, total: json.length, totalPages: 1 },
+    };
+  }
 
   if (!json.data?.items || !Array.isArray(json.data.items)) {
     console.error('❌ ОШИБКА: Ожидался массив items, но получено:', json.data);
