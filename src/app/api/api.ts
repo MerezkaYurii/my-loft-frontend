@@ -39,10 +39,10 @@ export const getLoftData = async (
 
   const json = await res.json();
 
-  if (Array.isArray(json)) {
+  if (Array.isArray(json.data)) {
     return {
-      items: json,
-      pagination: { page, limit, total: json.length, totalPages: 1 },
+      items: json.data,
+      pagination: { page, limit, total: json.data.length, totalPages: 1 },
     };
   }
 
