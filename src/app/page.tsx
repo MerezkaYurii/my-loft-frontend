@@ -50,6 +50,7 @@ export default function HomePage() {
                 <Link
                   href="/gallery/photo"
                   className="relative w-60 h-16  md:h-20   "
+                  prefetch={false}
                 >
                   <Image
                     src="/myfoto.png"
@@ -63,6 +64,7 @@ export default function HomePage() {
                 <Link
                   href="/gallery/photoFromInternet"
                   className="relative w-60 h-16  md:h-20  "
+                  prefetch={false}
                 >
                   <Image
                     src="/photoInternet.png"
@@ -76,6 +78,7 @@ export default function HomePage() {
                 <Link
                   href="/gallery/myEquipment"
                   className="relative mb-2 w-60 h-16  md:h-20 "
+                  prefetch={false}
                 >
                   <Image
                     src="/myEquipment.png"
@@ -94,6 +97,7 @@ export default function HomePage() {
                 <Link
                   href="/gallery/video"
                   className="relative w-60 h-16  md:h-20"
+                  prefetch={false}
                 >
                   <Image
                     src="/myvideo.png"
@@ -108,6 +112,7 @@ export default function HomePage() {
                 <Link
                   href="/gallery/videoFromInternet"
                   className="relative w-60 h-16  md:h-20 "
+                  prefetch={false}
                 >
                   <Image
                     src="/videoInternet.png"
@@ -122,6 +127,7 @@ export default function HomePage() {
                 <Link
                   href="/gallery/howToDoItCorrectly"
                   className="relative w-60 h-16  md:h-20 "
+                  prefetch={false}
                 >
                   <Image
                     src="/doCorrectly.png"

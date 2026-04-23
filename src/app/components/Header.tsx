@@ -11,8 +11,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const linkClass = (path: string) =>
-    `text-center leading-tight font-bold ${
-      pathname === path ? 'text-red-500' : 'text-white'
+    `text-center leading-tight font-bold ${pathname === path ? 'text-red-500' : 'text-white'
     }`;
 
   const navLinks = [
@@ -44,6 +43,7 @@ export default function Header() {
         <Link
           href="/"
           className="flex items-center h-[50px] w-[100px] justify-center shrink-0"
+
         >
           <svg
             height="50"
@@ -59,7 +59,7 @@ export default function Header() {
           style={{ textShadow: '2px 2px 4px black' }}
         >
           {navLinks.map(({ href, label1, label2 }) => (
-            <Link key={href} href={href} className={linkClass(href)}>
+            <Link key={href} href={href} className={linkClass(href)} prefetch={false}>
               <span>{label1}</span>
               <br />
               <span>{label2}</span>
@@ -96,6 +96,7 @@ export default function Header() {
               href={href}
               onClick={() => setMenuOpen(false)}
               className="block"
+              prefetch={false}
             >
               <span>{label1}</span> <span>{label2}</span>
             </Link>

@@ -5,6 +5,7 @@ const API_URL =
     ? 'http://localhost:4000'
     : process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
+
 if (!API_URL) {
   throw new Error('API_URL is undefined. Проверь переменные окружения!');
 }

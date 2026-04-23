@@ -1,7 +1,9 @@
 import React from 'react';
+import WakeUp from './components/WakeUp';
 import './globals.css';
 import Header from './components/Header';
 import { Metadata } from 'next';
+
 
 export const metadata: Metadata = {
   title: 'My Loft',
@@ -42,6 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
+        <WakeUp />
         <main>{children}</main>
       </body>
     </html>
