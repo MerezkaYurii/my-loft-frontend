@@ -12,9 +12,7 @@ export default function WakeUp() {
                 : process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
 
-        if (!API_URL) {
-            throw new Error('API_URL is undefined. Проверь переменные окружения!');
-        }
+
         // Делаем запрос к самому легкому роуту
         fetch(`${API_URL}/api/loft/my-photos?limit=1`)
             .then(() => console.log("Бекенд получил сигнал на прогрев"))
