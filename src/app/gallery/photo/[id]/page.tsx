@@ -4,7 +4,8 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import DetailPage from '@/app/components/DetailePage';
 import { getLoftItemById } from '@/app/api/api';
-import Loader from '../../Loader';
+import Loader from '@/app/components/Loader';
+
 
 export default function PhotoDetailPage() {
   const { id } = useParams() as { id: string };

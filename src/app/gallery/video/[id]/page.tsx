@@ -1,12 +1,13 @@
 // app/gallery/video/[id]/page.tsx
-'use client';
+
 
 'use client';
 import { useParams } from 'next/navigation';
 import DetailPage from '@/app/components/DetailePage';
 import { useEffect, useState } from 'react';
 import { getLoftItemById } from '@/app/api/api';
-import Loader from '../../Loader';
+import Loader from '@/app/components/Loader';
+
 
 export default function VideoDetailPage() {
   const { id } = useParams() as { id: string };

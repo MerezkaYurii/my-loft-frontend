@@ -1,40 +1,25 @@
-// components/Loader.tsx
+// src/app/gallery/Loader.tsx
 'use client';
 import React from 'react';
 
 const Loader: React.FC = () => {
   return (
-    <div className="loader-overlay">
-      <div className="loader-content">
-        <div className="spinner"></div>
-        <p>Initializing database...</p>
-        <span>This may take up to 10 seconds</span>
-      </div>
+    <div className="loader-container">
+      <div className="spinner"></div>
       <style jsx>{`
-        .loader-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(255, 255, 255, 0.3);
+        .loader-container {
           display: flex;
-          align-items: center;
           justify-content: center;
-          z-index: 9999;
-        }
-        .loader-content {
-          text-align: center;
-          font-family: sans-serif;
+          align-items: center;
+          height: 200px;
         }
         .spinner {
-          border: 4px solid #a4a9a4ff;
-          border-top: 4px solid #2309cfff;
+          width: 50px;
+          height: 50px;
+          border: 5px solid #b2afafff;
+          border-top: 5px solid #0573bdff;
           border-radius: 50%;
-          width: 40px;
-          height: 40px;
           animation: spin 1s linear infinite;
-          margin: 0 auto 15px;
         }
         @keyframes spin {
           0% { transform: rotate(0deg); }
@@ -45,4 +30,4 @@ const Loader: React.FC = () => {
   );
 };
 
-export default Loader;
+export default Loader; 
