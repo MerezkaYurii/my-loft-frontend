@@ -1,7 +1,6 @@
 // app/gallery/video/[id]/page.tsx
-
-
 'use client';
+export const dynamic = 'force-dynamic';
 import { useParams } from 'next/navigation';
 import DetailPage from '@/app/components/DetailePage';
 import { useEffect, useState } from 'react';
