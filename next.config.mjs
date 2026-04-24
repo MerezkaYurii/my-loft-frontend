@@ -1,7 +1,20 @@
-import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+
+
+  // next.config.ts
+typescript: {
+   
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+  
+    ignoreDuringBuilds: true,
+  },
+  
   images: {
+    
     remotePatterns: [
       {
         protocol: 'https',
@@ -40,13 +53,7 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '50mb',
     },
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+ 
 };
 
 export default nextConfig;
