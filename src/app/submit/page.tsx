@@ -1,4 +1,4 @@
-import SubmitMediaForm from '../components/SubmitMediaForm';
+import SubmitMediaForm from '@/app/components/SubmitMediaForm';
 
 
 export default function SubmitPage() {

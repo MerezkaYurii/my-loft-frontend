@@ -1,7 +1,8 @@
 import React from 'react';
-import './globals.css';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import '@/app/globals.css';
+
 
 export default function HomePage() {
   return (

@@ -1,8 +1,8 @@
 import React from 'react';
-import './globals.css';
-import Header from './components/Header';
+import Header from '@/app/components/Header';
 import { Metadata } from 'next';
-import WakeUp from './components/WakeUp';
+import WakeUp from '@/app/components/WakeUp';
+import '@/app/globals.css';
 
 export const metadata: Metadata = {
   title: 'My Loft',

@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import LoftModalAdmin from '../components/LoftModalAdmin';
+import LoftModalAdmin from '@/app/components/LoftModalAdmin';
 
 export default function AdminPage() {
   const [isOpen, setIsOpen] = useState(false);
