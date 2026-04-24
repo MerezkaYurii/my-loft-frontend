@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import LogoutIconLink from './LogoutIconLink';
-import SubmitIconLink from './SendMe';
+import LogoutIconLink from '@/app/components/LogoutIconLink';
+import SubmitIconLink from '@/app/components/SendMe';
 
 export default function Header() {
   const pathname = usePathname();

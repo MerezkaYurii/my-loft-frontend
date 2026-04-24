@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import ExternalFacebookVideo from './ExternalFacebookVideo';
-import { getLoftData } from '../api/api';
+
+import { getLoftData } from '@/app/api/api';
+import ExternalFacebookVideo from '@/app/components/ExternalFacebookVideo';
 
 export type GalleryItem = {
   _id: string;

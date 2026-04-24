@@ -1,9 +1,8 @@
 'use client';
-
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import ExternalFacebookVideo from './ExternalFacebookVideo';
+import ExternalFacebookVideo from '@/app/components/ExternalFacebookVideo';
 
 export type GalleryItem = {
   id: string;
